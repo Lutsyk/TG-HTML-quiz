@@ -24,28 +24,33 @@ function randomNoRepeats(array) {
   }
   
   var HTMLarray = [
-    '<ul> </ul> подсказка - https://t.me/c/1447331606/5',
-    '<ol> </ol> подсказка - https://t.me/c/1447331606/6',
-    '<li> </li> подсказка - https://t.me/c/1447331606/4',
-    'target="_blank" подсказка - https://t.me/c/1447331606/9',
-    'href="#" подсказка - https://t.me/c/1447331606/12',
-    'img src="https://bit.ly/ подсказка - https://t.me/c/1447331606/14',
-    '<a> </a> подсказка - https://t.me/c/1447331606/16',
-    '<p> </p> подсказка - https://t.me/c/1447331606/18',
-    '<h1> </h1>...<h6></h6> подсказка - https://t.me/c/1447331606/20',
-    '<pre> </pre> подсказка - https://t.me/c/1447331606/22',
-    '<main></main> подсказка - https://t.me/c/1447331606/24',
-    'input type="" подсказка - https://t.me/c/1447331606/26',
-    'placeholder="" подсказка - https://t.me/c/1447331606/30'
+    '<ul> </ul> [подсказка](https://t.me/c/1447331606/5)',
+    '<ol> </ol> [подсказка](https://t.me/c/1447331606/6)',
+    '<li> </li> [подсказка](https://t.me/c/1447331606/4)',
+    'target="_blank" [подсказка]h(https://t.me/c/1447331606/9)',
+    'href="#" [подсказка](https://t.me/c/1447331606/12)',
+    'img src="https://bit.ly/ [подсказка](https://t.me/c/1447331606/14)',
+    '<a> </a> [подсказка](https://t.me/c/1447331606/16)',
+    '<p> </p> [подсказка](https://t.me/c/1447331606/18)',
+    '<h1> </h1>...<h6></h6> [подсказка](https://t.me/c/1447331606/20)',
+    '<pre> </pre> [подсказка](https://t.me/c/1447331606/22)',
+    '<main></main> [подсказка](https://t.me/c/1447331606/24)',
+    'input type="" [подсказка](https://t.me/c/1447331606/26)',
+    'placeholder="" [подсказка](https://t.me/c/1447331606/30)'
 ];
-  
+
 var chooser = randomNoRepeats(HTMLarray);
 
 bot.onText(/\/quiz/, msg => {
-    const { id } = msg.chat
+  const { id } = msg.chat;
 
-    bot.sendMessage(id, chooser() + '\n\nНу шо це? Отвечает - ' + msg.from.first_name)
-})
+  bot.sendMessage(
+    id,
+    chooser() + "\n\nНу шо це? Отвечает - " + msg.from.first_name,{
+	parse_mode: "markdown"
+}
+  );
+});
 
 bot.onText(/\/star/, msg => {
     const { id } = msg.chat
